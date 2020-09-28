@@ -1,7 +1,9 @@
 body {
-  background: url(assets/image_space.jpg) no-repeat center fixed;
+  margin: 0;
+  padding: 0;
+  background: url(assets/new_marvinmeyerrr.jpg) no-repeat center fixed;
   -webkit-background: cover;
   -moz-background: cover;
   -o-background: cover;
-  background: cover;
+  background-size: cover;
 }
