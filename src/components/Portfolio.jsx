@@ -17,7 +17,7 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles({
     mainContainer: {
         background: "#233",
-        height: "100%"
+
     },
     cardContainer: {
         maxWidth: 345,
@@ -34,7 +34,7 @@ const Portfolio = () => {
     return (
         <>
             <Navbar />
-            <Box component="div" className={classes.mainContainer} style={{ marginTop: 30, opacity: 0.8 }}>
+            <Box component="div" className={classes.mainContainer} style={{ opacity: 0.8, height: "100vh" }}>
                 <Grid container justify="center" >
                     <Grid item xs={12} sm={8} md={6}>
                         <Card className={classes.cardContainer}>

@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 import Header from './Header'
 import Particles from "react-particles-js"
 import { makeStyles } from '@material-ui/styles'
+import Loader from './Loader'
 
 const useStyles = makeStyles({
     particlesCanva: {
@@ -57,6 +58,7 @@ const Home = () => {
 
             />
             <Header />
+
         </div>
     )
 }

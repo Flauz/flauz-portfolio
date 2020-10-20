@@ -7,6 +7,7 @@ import {
     Box
 } from '@material-ui/core'
 import Typed from "react-typed"
+import Loader from './Loader'
 
 
 // CSS STYLES
@@ -53,6 +54,7 @@ const Header = () => {
                 <br />
                 <Typed strings={["React.js/Node.js"]} typeSpeed={40} />
             </Typography>
+            <Loader />
         </Box>
     )
 }
