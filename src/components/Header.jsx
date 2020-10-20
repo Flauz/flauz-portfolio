@@ -54,7 +54,6 @@ const Header = () => {
                 <br />
                 <Typed strings={["React.js/Node.js"]} typeSpeed={40} />
             </Typography>
-            <Loader />
         </Box>
     )
 }

@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 import { makeStyles } from "@material-ui/core/styles"
 import { Typography, Box } from "@material-ui/core"
 import Navbar from "./Navbar"
+import Loader from './Loader'
 
 const useStyles = makeStyles(theme => ({
     maintContainer: {
@@ -107,64 +109,86 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const Resume = () => {
+    const [loading, setLoading] = useState(false)
 
     const classes = useStyles()
 
+    useEffect(() => {
+        const loading = () => {
+            setTimeout(() => {
+                setLoading(true)
+            },
+                1500
+            )
+        }
+        loading()
+    }, [])
+
     return (
-        <>
-            <Navbar />
-            <Box component="header" className={classes.maintContainer}>
-                <Typography variant="h4" align="center" className={classes.heading}>
-                    Working Experience
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}>
+            {!loading ? <Loader /> :
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}>
+                    <Navbar />
+                    <Box component="header" className={classes.maintContainer}>
+                        <Typography variant="h4" align="center" className={classes.heading}>
+                            Working Experience
                 </Typography>
-                <Box component="div" className={classes.timeLine}>
-                    <Typography variant="h2" className={`${classes.timeLineYear} ${classes.timeLineItem}`}>2018</Typography>
-                    <Box component="div" className={classes.timeLineItem}>
-                        <Typography variant="h5" align="center" className={classes.subHeading}>
-                            html & css
+                        <Box component="div" className={classes.timeLine}>
+                            <Typography variant="h2" className={`${classes.timeLineYear} ${classes.timeLineItem}`}>2018</Typography>
+                            <Box component="div" className={classes.timeLineItem}>
+                                <Typography variant="h5" align="center" className={classes.subHeading}>
+                                    html & css
                         </Typography>
-                        <Typography variant="body1" align="center" style={{ color: "white" }}>
-                            Lorem ipsum
+                                <Typography variant="body1" align="center" style={{ color: "white" }}>
+                                    Lorem ipsum
                         </Typography>
-                        <Typography variant="subtitle1" align="center" style={{ color: "white" }}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                <Typography variant="subtitle1" align="center" style={{ color: "white" }}>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </Typography>
-                    </Box>
-                    <br />
-                    <br />
-                    <Typography variant="h2" className={`${classes.timeLineYear} ${classes.timeLineItem}`}>
-                        2019
+                            </Box>
+                            <br />
+                            <br />
+                            <Typography variant="h2" className={`${classes.timeLineYear} ${classes.timeLineItem}`}>
+                                2019
                     </Typography>
-                    <Box component="div" className={classes.timeLineItem}>
-                        <Typography variant="h5" align="center" className={classes.subHeading}>
-                            Javascript
+                            <Box component="div" className={classes.timeLineItem}>
+                                <Typography variant="h5" align="center" className={classes.subHeading}>
+                                    Javascript
                         </Typography>
-                        <Typography variant="body1" align="center" style={{ color: "white" }}>
-                            Lorem ipsum
+                                <Typography variant="body1" align="center" style={{ color: "white" }}>
+                                    Lorem ipsum
                         </Typography>
-                        <Typography variant="subtitle1" align="center" style={{ color: "white" }}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                <Typography variant="subtitle1" align="center" style={{ color: "white" }}>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </Typography>
+                            </Box>
+                            <br />
+                            <br />
+                            <Typography variant="h2" className={`${classes.timeLineYear} ${classes.timeLineItem}`}>2020</Typography>
+                            <Box component="div" className={classes.timeLineItem}>
+                                <Typography variant="h5" align="center" className={classes.subHeading}>
+                                    react | redux
+                        </Typography>
+                                <Typography variant="body1" align="center" style={{ color: "white" }}>
+                                    Lorem ipsum
+                        </Typography>
+                                <Typography variant="subtitle1" align="center" style={{ color: "white" }}>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </Typography>
+                            </Box>
+                            <br />
+                            <br />
+                        </Box>
                     </Box>
-                    <br />
-                    <br />
-                    <Typography variant="h2" className={`${classes.timeLineYear} ${classes.timeLineItem}`}>2020</Typography>
-                    <Box component="div" className={classes.timeLineItem}>
-                        <Typography variant="h5" align="center" className={classes.subHeading}>
-                            react | redux
-                        </Typography>
-                        <Typography variant="body1" align="center" style={{ color: "white" }}>
-                            Lorem ipsum
-                        </Typography>
-                        <Typography variant="subtitle1" align="center" style={{ color: "white" }}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </Typography>
-                    </Box>
-                    <br />
-                    <br />
-                </Box>
-            </Box>
-        </>
+                </motion.div>
+            }
+        </motion.div>
     )
 }
 

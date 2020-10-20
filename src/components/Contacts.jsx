@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import Loader from './Loader'
+import { motion } from 'framer-motion'
 import axios from "axios"
 import { makeStyles, withStyles } from "@material-ui/core/styles"
 import { TextField, Typography, Button, Grid, Box } from "@material-ui/core"
@@ -43,8 +45,20 @@ const Contacts = () => {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [message, setMessage] = useState("")
+    const [loading, setLoading] = useState(false)
 
     const classes = useStyles()
+
+    useEffect(() => {
+        const loading = () => {
+            setTimeout(() => {
+                setLoading(true)
+            },
+                1500
+            )
+        }
+        loading()
+    }, [])
 
     const onNameChange = (e) => {
         setName(e.target.value)
@@ -82,55 +96,64 @@ const Contacts = () => {
 
     return (
         <>
-            <Navbar />
-            <Box component="div" style={{ opacity: 0.8, background: "#233", height: "100vh" }}>
+            {!loading ? <Loader /> :
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                >
+                    <Navbar />
+                    <Box component="div" style={{ opacity: 0.8, background: "#233", height: "100vh" }}>
 
-                <Grid container justify="center">
-                    <Box component="form" className={classes.form} method="POST" onSubmit={submitEmail}>
-                        <Typography variant="h5" style={{ color: "#7e858d", textAlign: "center", textTransform: "uppercase" }}>
-                            Contacts
+                        <Grid container justify="center">
+                            <Box component="form" className={classes.form} method="POST" onSubmit={submitEmail}>
+                                <Typography variant="h5" style={{ color: "#7e858d", textAlign: "center", textTransform: "uppercase" }}>
+                                    Contacts
                     </Typography>
-                        <InputField
-                            value={name}
-                            onChange={onNameChange}
-                            fullWidth={true}
-                            label="Name"
-                            variant="outlined"
-                            margin="dense"
-                            size="medium"
-                            inputProps={{ style: { color: "white" } }}
-                        />
-                        <br />
-                        <InputField
-                            value={email}
-                            onChange={onEmailChange}
-                            fullWidth={true}
-                            label="Email"
-                            variant="outlined"
-                            margin="dense"
-                            size="medium"
-                            inputProps={{ style: { color: "white" } }}
-                        />
-                        <br />
-                        <InputField
-                            value={message}
-                            onChange={onMsgChange}
-                            fullWidth={true}
-                            label="Message"
-                            variant="outlined"
-                            margin="dense"
-                            size="medium"
-                            inputProps={{ style: { color: "white" } }}
-                        />
-                        <br />
-                        <Button type="submit" className={classes.button} variant="outlined" fullWidth={true} endIcon={<SendIcon />}>
-                            contact me
+                                <InputField
+                                    value={name}
+                                    onChange={onNameChange}
+                                    fullWidth={true}
+                                    label="Name"
+                                    variant="outlined"
+                                    margin="dense"
+                                    size="medium"
+                                    inputProps={{ style: { color: "white" } }}
+                                />
+                                <br />
+                                <InputField
+                                    value={email}
+                                    onChange={onEmailChange}
+                                    fullWidth={true}
+                                    label="Email"
+                                    variant="outlined"
+                                    margin="dense"
+                                    size="medium"
+                                    inputProps={{ style: { color: "white" } }}
+                                />
+                                <br />
+                                <InputField
+                                    value={message}
+                                    onChange={onMsgChange}
+                                    fullWidth={true}
+                                    label="Message"
+                                    variant="outlined"
+                                    margin="dense"
+                                    size="medium"
+                                    inputProps={{ style: { color: "white" } }}
+                                />
+                                <br />
+                                <Button type="submit" className={classes.button} variant="outlined" fullWidth={true} endIcon={<SendIcon />}>
+                                    contact me
                     </Button>
+                            </Box>
+                        </Grid>
                     </Box>
-                </Grid>
-            </Box>
+                </motion.div>
+            }
         </>
     )
+
 }
 
 export default Contacts
