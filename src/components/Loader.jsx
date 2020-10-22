@@ -6,7 +6,7 @@ const useStyles = makeStyles({
     loader: {
         height: "10px",
         width: "10px",
-        margin: "50% auto",
+        margin: "50vh auto",
         borderRadius: "50%",
         background: "white"
     }

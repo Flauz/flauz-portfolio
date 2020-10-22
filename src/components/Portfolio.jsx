@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import {motion} from 'framer-motion'
+import { motion } from 'framer-motion'
 import Navbar from './Navbar'
 import Loader from './Loader'
 import projetc1 from "../assets/imageTest.jpg"
@@ -19,6 +19,8 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles({
     mainContainer: {
         background: "#233",
+        opacity: "0.8",
+        backgroundSize: "cover"
 
     },
     cardContainer: {
@@ -47,13 +49,14 @@ const Portfolio = () => {
 
     return (
         <>
+            <Navbar />
             {!loading ? <Loader /> :
-                <motion.div
+                <motion.div height="100%"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}>
-                    <Navbar />
-                    <Box component="div" className={classes.mainContainer} style={{ opacity: 0.8, height: "100%" }}>
+
+                    <Box height="100%" component="div" className={classes.mainContainer}>
                         <Grid container justify="center" >
                             <Grid item xs={12} sm={8} md={6}>
                                 <Card className={classes.cardContainer}>

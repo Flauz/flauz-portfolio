@@ -9,7 +9,8 @@ const useStyles = makeStyles(theme => ({
     maintContainer: {
         background: "#233",
         opacity: 0.9,
-        marginTop: 20
+
+
     },
     timeLine: {
         position: "relative",
@@ -98,7 +99,7 @@ const useStyles = makeStyles(theme => ({
     },
     heading: {
         color: "primary",
-        padding: "3rem 0",
+        paddingTop: "15%",
         textTransform: "uppercase"
     },
     subHeading: {
@@ -125,70 +126,74 @@ const Resume = () => {
     }, [])
 
     return (
-        <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}>
-            {!loading ? <Loader /> :
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}>
-                    <Navbar />
-                    <Box component="header" className={classes.maintContainer}>
-                        <Typography variant="h4" align="center" className={classes.heading}>
-                            Working Experience
-                </Typography>
-                        <Box component="div" className={classes.timeLine}>
-                            <Typography variant="h2" className={`${classes.timeLineYear} ${classes.timeLineItem}`}>2018</Typography>
-                            <Box component="div" className={classes.timeLineItem}>
-                                <Typography variant="h5" align="center" className={classes.subHeading}>
-                                    html & css
+        <>
+            <Navbar />
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}>
+
+                {!loading ? <Loader /> :
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}>
+
+                        <Box height="100%" component="header" className={classes.maintContainer}>
+                            <Typography variant="h4" align="center" className={classes.heading}>
+                                Working Experience
+                            </Typography>
+                            <Box component="div" className={classes.timeLine}>
+                                <Typography variant="h2" className={`${classes.timeLineYear} ${classes.timeLineItem}`}>2018</Typography>
+                                <Box component="div" className={classes.timeLineItem}>
+                                    <Typography variant="h5" align="center" className={classes.subHeading}>
+                                        html & css
+                                </Typography>
+                                    <Typography variant="body1" align="center" style={{ color: "white" }}>
+                                        Lorem ipsum
                         </Typography>
-                                <Typography variant="body1" align="center" style={{ color: "white" }}>
-                                    Lorem ipsum
+                                    <Typography variant="subtitle1" align="center" style={{ color: "white" }}>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </Typography>
-                                <Typography variant="subtitle1" align="center" style={{ color: "white" }}>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </Typography>
-                            </Box>
-                            <br />
-                            <br />
-                            <Typography variant="h2" className={`${classes.timeLineYear} ${classes.timeLineItem}`}>
-                                2019
+                                </Box>
+                                <br />
+                                <br />
+                                <Typography variant="h2" className={`${classes.timeLineYear} ${classes.timeLineItem}`}>
+                                    2019
                     </Typography>
-                            <Box component="div" className={classes.timeLineItem}>
-                                <Typography variant="h5" align="center" className={classes.subHeading}>
-                                    Javascript
+                                <Box component="div" className={classes.timeLineItem}>
+                                    <Typography variant="h5" align="center" className={classes.subHeading}>
+                                        Javascript
                         </Typography>
-                                <Typography variant="body1" align="center" style={{ color: "white" }}>
-                                    Lorem ipsum
+                                    <Typography variant="body1" align="center" style={{ color: "white" }}>
+                                        Lorem ipsum
                         </Typography>
-                                <Typography variant="subtitle1" align="center" style={{ color: "white" }}>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                    <Typography variant="subtitle1" align="center" style={{ color: "white" }}>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </Typography>
+                                </Box>
+                                <br />
+                                <br />
+                                <Typography variant="h2" className={`${classes.timeLineYear} ${classes.timeLineItem}`}>2020</Typography>
+                                <Box component="div" className={classes.timeLineItem}>
+                                    <Typography variant="h5" align="center" className={classes.subHeading}>
+                                        react | redux
+                        </Typography>
+                                    <Typography variant="body1" align="center" style={{ color: "white" }}>
+                                        Lorem ipsum
+                        </Typography>
+                                    <Typography variant="subtitle1" align="center" style={{ color: "white" }}>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </Typography>
+                                </Box>
+                                <br />
+                                <br />
                             </Box>
-                            <br />
-                            <br />
-                            <Typography variant="h2" className={`${classes.timeLineYear} ${classes.timeLineItem}`}>2020</Typography>
-                            <Box component="div" className={classes.timeLineItem}>
-                                <Typography variant="h5" align="center" className={classes.subHeading}>
-                                    react | redux
-                        </Typography>
-                                <Typography variant="body1" align="center" style={{ color: "white" }}>
-                                    Lorem ipsum
-                        </Typography>
-                                <Typography variant="subtitle1" align="center" style={{ color: "white" }}>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </Typography>
-                            </Box>
-                            <br />
-                            <br />
                         </Box>
-                    </Box>
-                </motion.div>
-            }
-        </motion.div>
+                    </motion.div>
+                }
+            </motion.div>
+        </>
     )
 }
 

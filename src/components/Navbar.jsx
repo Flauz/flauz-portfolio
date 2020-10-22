@@ -40,7 +40,7 @@ const useStyles = makeStyles(theme => ({
     menuSliderContainer: {
         marginTop: 40,
         width: 250,
-        background: "#343a40",
+        background: "#6C757D",
         height: "100vh",
 
     },
@@ -73,16 +73,17 @@ const useStyles = makeStyles(theme => ({
     drawer: {
         width: drawerWidth,
         flexShrink: 0,
-        background: "grey"
+        background: "#6C757D"
 
     },
     drawerPaper: {
         width: drawerWidth,
-        background: "#343a40",
+        background: "#6C757D",
         opacity: 0.95
     },
     drawerHeader: {
         display: 'flex',
+
         alignItems: 'center',
         padding: theme.spacing(0, 1),
         // necessary for content to be below app bar
@@ -166,10 +167,8 @@ const Navbar = () => {
                             {lsItem.listIcon}
                         </ListItemIcon>
                         <ListItemText className={classes.listItem} primary={lsItem.listText} />
-
                     </ListItem>
                 ))}
-
             </List>
         </Box>
     )
@@ -195,25 +194,8 @@ const Navbar = () => {
                         >
                             <MenuIcon />
                         </IconButton>
-
-                        <Typography variant="h5" noWrap>
-                            Flauz's Portfolio
-                        </Typography>
-
-
-
                     </Toolbar>
                 </AppBar>
-                {/* <MobilRightMenuSlider
-                    style={{ opacity: 0.7 }}
-                    anchor="left"
-                    open={state.right}
-                    onClose={toggleSlider("right", false)}
-                >
-                    {sideList("right")}
-                    <Footer />
-                </MobilRightMenuSlider> */}
-
                 <MobilRightMenuSlider
                     className={classes.drawer}
                     variant="persistent"
@@ -223,12 +205,15 @@ const Navbar = () => {
                         paper: classes.drawerPaper,
                     }}
                 >
-                    <div className={classes.drawerHeader}>
+                    <div style={{ background: "#222" }} className={classes.drawerHeader}>
+                        <Typography variant="h5">
+                            MENU
+                        </Typography>
                         <IconButton onClick={handleDrawerClose}>
                             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
                         </IconButton>
                     </div>
-                    <Box component="div" style={{ background: "#343a40" }}>
+                    <Box component="div" style={{ background: "#6C757D" }}>
                         <Divider />
                         <List>
                             {menuItems.map((lsItem, key) => (
@@ -237,15 +222,12 @@ const Navbar = () => {
                                         {lsItem.listIcon}
                                     </ListItemIcon>
                                     <ListItemText className={classes.listItem} primary={lsItem.listText} />
-
                                 </ListItem>
                             ))}
-
                         </List>
                     </Box>
                 </MobilRightMenuSlider>
             </Box >
-
         </>
     )
 }
