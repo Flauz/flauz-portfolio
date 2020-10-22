@@ -23,6 +23,10 @@ const useStyles = makeStyles({
         backgroundSize: "cover"
 
     },
+    title: {
+        paddingTop: "10vh",
+        fontFamily: "Montserrat"
+    },
     cardContainer: {
         maxWidth: 345,
         margin: "3rem",
@@ -57,6 +61,9 @@ const Portfolio = () => {
                     exit={{ opacity: 0 }}>
 
                     <Box height="100%" component="div" className={classes.mainContainer}>
+                        <Typography className={classes.title} variant="h2" align="center">
+                            Portfolio
+                        </Typography>
                         <Grid container justify="center" >
                             <Grid item xs={12} sm={8} md={6}>
                                 <Card className={classes.cardContainer}>

@@ -18,9 +18,12 @@ const useStyles = makeStyles(theme => ({
         margin: theme.spacing(1)
     },
     title: {
-        color: "#adb5bd"
+        color: "#adb5bd",
+        fontFamily: "Montserrat"
+        
     },
     subtitle: {
+        fontFamily: "Montserrat",
         color: "#dfe7ef",
         marginBottom: "3rem"
     },
@@ -46,13 +49,13 @@ const Header = () => {
             </Grid> */}
 
             <Typography className={classes.title} variant="h4">
-                <Typed strings={["Florian Guillot"]} typeSpeed={40} />
+                Florian Guillot
             </Typography>
             <br />
             <Typography className={classes.subtitle} variant="h5">
-                <Typed strings={["Web Developer"]} typeSpeed={40} />
+                Web Developer
                 <br />
-                <Typed strings={["React.js/Node.js"]} typeSpeed={40} />
+                React.js / Node.js
             </Typography>
         </Box>
     )

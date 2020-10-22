@@ -98,9 +98,10 @@ const useStyles = makeStyles(theme => ({
 
     },
     heading: {
+        fontFamily: "Montserrat",
         color: "primary",
-        paddingTop: "15%",
-        textTransform: "uppercase"
+        paddingTop: "10vh",
+        
     },
     subHeading: {
         color: "white",
